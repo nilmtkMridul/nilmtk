@@ -17,21 +17,21 @@ before_install:
   - conda info -a
   - sudo apt-get install libhdf5-serial-dev python-dev
   - sudo apt-get install git
-  - conda install --yes pip
-  - git clone https://github.com/nilmtk/nilm_metadata/
-  - cd nilm_metadata; python setup.py develop; cd ..
+  # - conda install --yes pip
+  # - git clone https://github.com/nilmtk/nilm_metadata/
+  # - cd nilm_metadata; python setup.py develop; cd ..
 
 install:
-  - conda install --yes pip python=$TRAVIS_PYTHON_VERSION numpy scipy six scikit-learn cython pandas numexpr pytables dateutil matplotlib networkx ipython
+  # - conda install --yes pip python=$TRAVIS_PYTHON_VERSION numpy scipy six scikit-learn cython pandas numexpr pytables dateutil matplotlib networkx ipython
   # Have to use pip for nose-cov because its entry points are not supported by conda yet
   - sudo rm -rf /dev/shm
   - sudo ln -s /run/shm /dev/shm
-  - sudo apt-get build-dep python-psycopg2
-  - pip install psycopg2
-  - pip install git+https://github.com/hmmlearn/hmmlearn.git
-  - pip install nose
-  - pip install sh
-  - pip install coveralls coverage
+  # - sudo apt-get build-dep python-psycopg2
+  # - pip install psycopg2
+  # - pip install git+https://github.com/hmmlearn/hmmlearn.git
+  # - pip install nose
+  # - pip install sh
+  # - pip install coveralls coverage
   - python setup.py install
 script:
    - nosetests --with-coverage
